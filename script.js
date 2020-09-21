@@ -64,7 +64,27 @@ function suffix(){
         var str = '<ul>'
         
         suff.forEach(function(objects) {
-            str += '<li>'+ objects + '</li>';
+            str += '<li>'+ JSON.stringify(objects.word) + '</li>';
+        });
+
+        document.getElementById("suffixRes").innerHTML = str;
+    })
+}
+
+function demonstrate(){
+    document.getElementById('searchInput').value = 'canas'
+
+    fetch(`https://api.dicionario-aberto.net/suffix/canas`)
+    .then(res => res.json())
+    .then(suff => {
+        const suffixRes = document.getElementById('suffixRes')
+
+        console.log(suff)
+        
+        var str = '<ul>'
+        
+        suff.forEach(function(objects) {
+            str += '<li>'+ JSON.stringify(objects.word) + '</li>';
         });
 
         document.getElementById("suffixRes").innerHTML = str;
