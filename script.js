@@ -9,9 +9,11 @@ function start(){
         const signif = document.getElementById('signif')
         const rButton = document.getElementById('rButton')
         const searchDiv = document.getElementById('searchDiv')
+        const searchSenseDiv = document.getElementById('searchSenseDiv')
         // const usageH2 = document.getElementById('usageH2')
 
         searchDiv.hidden = true
+        searchSenseDiv.hidden = true
 
         const word = random.word
         const sense = random.sense
@@ -53,6 +55,11 @@ function suffix(){
 
     const suffixValue = document.getElementById('searchInput').value
 
+    document.getElementById('generateDiv').hidden = true
+    document.getElementById('searchSenseDiv').hidden = true
+
+    document.getElementById('desmontrateButton').hidden = true
+
     fetch(`https://api.dicionario-aberto.net/suffix/${suffixValue}`)
     .then(res => res.json())
     .then(suff => {
@@ -74,10 +81,15 @@ function suffix(){
 function demonstrate(){
     document.getElementById('searchInput').value = 'canas'
 
+    document.getElementById('generateDiv').hidden = true
+    document.getElementById('searchSenseDiv').hidden = true
+
     fetch(`https://api.dicionario-aberto.net/suffix/canas`)
     .then(res => res.json())
     .then(suff => {
         const suffixRes = document.getElementById('suffixRes')
+
+        document.getElementById('desmontrateButton').hidden = true
 
         console.log(suff)
         
@@ -88,5 +100,49 @@ function demonstrate(){
         });
 
         document.getElementById("suffixRes").innerHTML = str;
+    })
+}
+
+function senseSearch() {
+    word = document.getElementById('searchSense').value
+
+    document.getElementById('searchDiv').hidden = true
+    document.getElementById('generateDiv').hidden = true
+
+    document.getElementById('desmontrateButtonS').hidden = true
+
+    fetch(`https://api.dicionario-aberto.net/word/${word}`)
+    .then(res => res.json())
+    .then(search => {
+        console.log(search)
+        console.log(search[0])
+
+        const xml = search[0].xml
+
+        var newxml = xml.replace(/_/g, "<em>")
+
+        const div = document.getElementById('senseSpace')
+        div.innerHTML = newxml
+    })
+}
+
+function demonstrateSense() {
+    word = document.getElementById('searchSense').value = 'cavalo'
+
+    document.getElementById('searchDiv').hidden = true
+    document.getElementById('generateDiv').hidden = true
+
+    fetch(`https://api.dicionario-aberto.net/word/cavalo`)
+    .then(res => res.json())
+    .then(search => {
+        console.log(search)
+        console.log(search[0])
+
+        const xml = search[0].xml
+
+        var newxml = xml.replace(/_/g, "<em>")
+
+        const div = document.getElementById('senseSpace')
+        div.innerHTML = newxml
     })
 }

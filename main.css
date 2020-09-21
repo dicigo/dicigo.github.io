@@ -40,12 +40,29 @@ body{
     transition: .7s;
 }
 
-#searchInput:focus{
+.searchInput:focus{
     background-color: black;
     color: white;
 }
 
 #searchButton:hover {
+    height: 35px;
+    width: 160px;
+}
+
+.desmontrateButton {
+    border: none; 
+    background-color: white; 
+    height: 30px; 
+    width: 125px; 
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif; 
+    cursor: pointer;
+
+    transition: .7s;
+}
+
+#desmontrateButton:hover {
     height: 35px;
     width: 160px;
 }
