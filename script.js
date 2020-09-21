@@ -9,7 +9,7 @@ function start(){
         const signif = document.getElementById('signif')
         const rButton = document.getElementById('rButton')
         const searchDiv = document.getElementById('searchDiv')
-        const usageH2 = document.getElementById('usageH2')
+        // const usageH2 = document.getElementById('usageH2')
 
         searchDiv.hidden = true
 
@@ -40,9 +40,9 @@ function start(){
 
             const randomUsage = usageArray[Math.floor(Math.random() * usageArray.length)];
 
-            usageH2.innerHTML = `${randomUsage} ${word}`
+            // usageH2.innerHTML = `${randomUsage} ${word}`
 
-            usageH2.hidden = false
+            // usageH2.hidden = false
         })
     })
 }
