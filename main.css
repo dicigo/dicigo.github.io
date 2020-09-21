@@ -62,7 +62,7 @@ body{
     transition: .7s;
 }
 
-#desmontrateButton:hover {
+.desmontrateButton:hover {
     height: 35px;
     width: 160px;
 }
