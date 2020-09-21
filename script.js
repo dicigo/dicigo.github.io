@@ -36,7 +36,7 @@ function start(){
             const div = document.getElementById('response')
             div.innerHTML = xml
 
-            usageArray = ['Hoje eu tive um dia ', 'Meu irmão é ', 'Ontem meu cachorro estava ', 'Minha casa é ', 'Minha mãe é ', 'Meu pai é ']
+            usageArray = ['Hoje eu tive um dia ', 'Meu irmão é ', 'Ontem meu cachorro estava ', 'Minha casa é ', 'Minha mãe é ', 'Meu pai é ', 'Ontem eu fui no cinema, mas me senti um pouco ', 'Meu amigo me disse que eu deveria me sentir mais ']
 
             const randomUsage = usageArray[Math.floor(Math.random() * usageArray.length)];
 
